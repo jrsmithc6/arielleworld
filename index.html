@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arielle World</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap'); /* Import Poppins font */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5e7db;
+            color: #594a4e;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 30px;
+            align-items: center;
+            background-color: #f5e7db;
+            border-bottom: 3px solid #594a4e;
+        }
+
+        header ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        header ul li {
+            margin: 0 15px;
+            padding: 5px 10px;
+            transition: background-color 0.3s;
+        }
+
+        header ul li:hover {
+            background-color: #594a4e;
+            color: #f5e7db;
+            border-radius: 5px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 30px;
+        }
+
+        .card {
+            background-color: #ffffff; /* Make cards slightly different from background */
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+        }
+
+        .card:hover {
+            transform: scale(1.05); /* Zoom effect on hover */
+        }
+
+        .card-link {
+            text-decoration: none;  /* Removes underline */
+            color: inherit;         /* Ensures text color is unchanged */
+            display: block;         /* Makes the entire card clickable */
+        }
+
+        .main-content {
+            grid-column: span 2;
+        }
+
+        .main-image {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px; /* Space between image and text */
+        }
+
+        .logo {
+            width: 120px;       /* Set the width of the circle logo */
+            height: 120px;      /* Set the height of the circle logo */
+            border-radius: 50%; /* This will make the image circular */
+            border: 2px solid #594a4e; /* Optional: Add a border around the circle */
+            object-fit: cover; /* Ensures the image scales properly inside the circle */
+            margin: 0 auto;    /* Center the logo if its parent container is flex or grid */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo:hover {
+            transform: scale(1.1);
+            transition: transform 0.3s;
+        }
+
+        footer {
+            padding: 20px 30px;
+            text-align: center;
+            background-color: #f5e7db;
+            border-top: 3px solid #594a4e;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Arielle World</h1>
+        <ul>
+            <li>Consultations</li>
+            <li>Tipline</li>
+            <li>Products</li>
+            <li>Pet Photography</li>
+            <li>Testimonials</li>
+            <li>Arielle</li>
+            <li>Spectrum</li>
+        </ul>
+    </header>
+    <div class="container">
+        <div class="card">
+            <img src="tulips_pinkpurple.jpg" alt="pink tulips" class="logo">
+            <h2>Consultations</h2>
+            <p>Book a time to meet with Arielle!</p>
+        </div>
+        <a href="https://www.theknot.com/us/arielle-wilmer-and-jacoby-smith-apr-2024" class="card-link">
+            <div class="card">
+                <img src="images/engagement.jpeg" alt="pink tulips" class="logo">
+                <h2>Wedding Site!</h2>
+                <p>Venue info and other tea!</p>
+            </div>
+        </a>
+        <div class="card">
+            <img src="images/IMG_7810.jpeg" alt="pink purple and green podium with microphone" class="logo">
+            <h2>Testimonials</h2>
+            <p>Stories of success!</p>
+        </div>
+        <div class="card">
+            <img src="images/IMG_6921.jpeg" alt="pastel spa" class="logo">
+            <h2>Products</h2>
+            <p>Browse Arielle's favorites!</p>
+        </div>
+        <a href="petphotography/index.html" class="card-link">
+            <div class="card">
+                <img src="images/IMG_3878.jpeg" alt="pink tulips" class="logo">
+                <h2>Pet Photography</h2>
+                <p>Check out Arielle's pet-arazzi skills!</p>
+            </div>
+        </a>        
+		  <a href="jacoby/index.html" class="card-link">
+            <div class="card">
+                <img src="images/jacoby_headshot.jpeg" alt="Headshot of Jacoby in a purple sweater." class="logo">
+                <h2>Coby's Corner</h2>
+                <p>Learn more about the Tech team!</p>
+            </div>
+        </a>
+        <div class="card">
+            <img src="images/IMG_4611.jpeg" alt="Arielle under an autumn tree!" class="logo">
+            <h2>About</h2>
+            <p>Arielle's lore!</p>
+        </div>
+    </div>
+    <footer>
+        <p>© Arielle World</p>
+    </footer>
+</body>
+</html>

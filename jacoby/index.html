@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jacoby Smith - Personal Website</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+        nav {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            margin: 0 10px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+        .news-entry {
+            margin-bottom: 20px;
+        }
+        .news-title {
+            font-size: 24px;
+            margin: 0;
+        }
+        .news-date {
+            color: #666;
+        }
+        .news-content {
+            margin-top: 10px;
+        }
+        .social-links {
+            margin-top: 10px;
+            text-align: center;
+        }
+        .social-links a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            padding: 5px;
+            display: inline-block;
+        }
+        .social-links a i {
+            font-size: 24px;
+            color: rgb(140, 80, 136); 
+        }
+        .social-links a:hover {
+            text-decoration: underline;
+            color: #4CAF50; 
+        }
+
+.card-stack {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    perspective: 1200px;
+    margin-top: 20px;
+  }
+
+  .card {
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s, opacity 0.5s;
+    cursor: pointer;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Box shadow for a card effect */
+  }
+
+  .card:hover {
+    transform: translateY(-20px) scale(1.05);
+    opacity: 0.7;
+  }
+
+  /* Stacking cards on top of each other with a slight downward offset */
+  .card:nth-child(1) { z-index: 3; }
+  .card:nth-child(2) { z-index: 2; transform: translateY(20px); }
+  /* Add more as needed, increasing the translateY value */
+
+  /* Ensure content below is pushed down */
+  .content-below {
+    margin-top: 340px;
+  }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Jacoby Smith</h1>
+        <p>Software Engineer | Golf Enthusiast | Living with an SCI</p>
+    </header>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <p>I'm a software engineer living with Central Cord Syndrome from an SCI at the C5-C6 level. I particularly enjoy my wife, golfing, exploring topics like computing, biology, and geography, and playing with my three cats (Rosie, Boo, and Teller). I appreciate all things good.</p>
+        </section>
+		  <section id="pins">
+			   <h2>Pins</h2>
+				<p>
+				<strong>2024 Christmas Newsletter</strong>
+				<a href="newsletters/Christmas-2023.html" target="_blank"> Skelly and family's year in review!</a></p>
+				</section>
+        <section id="resume">
+            <h2>Resume</h2>
+            <p>
+                <strong>Education:</strong><br>
+                - Valedictorian, Stafford High School - 2016<br>
+                - Magna Cum Laude, BS in Computer Science & Applied Math, Vanderbilt University - 2020
+            </p>
+            <p>
+                <strong>Work Experience:</strong><br>
+                - Scientist @ NSWC Dahlgren (2 years) - C++ and Distributed Systems Engineering<br>
+                - Senior Software Engineer @ Capital One (October 2022-present) - AWS Solutions Architect Certified
+            </p>
+				<p>
+                <strong>Public Service:</strong><br>
+                - NSWCDD Distinguished Community Service Award (2022)<br>
+                - Gifted Advisory Committee, Stafford County School Board (January 2025-present)
+            </p>
+        </section>
+        <section id="jams">
+            <h2>Jams</h2>
+            <p>
+                <strong>A taste of our Wedding Playlist</strong><br>
+            </p>
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/54q1iTA9gKERgY3YmoPscD?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </section>
+        <section id="news">
+            <h2>Newsworthy</h2>
+
+            <div class="news-entry">
+                <h3 class="news-title">Debut Tourney as Stafford's #1</h3>
+                <p class="news-date">Posted on August 8, 2013</p>
+                <div class="news-content">
+                    <p>My first tournament playing as the #1 for my high school team! I shot under 40 on a 9 for the first time, and lost by 22 to a guy in my group. Thanks Mattias for enraging him! <a href="https://fredericksburg.com/sports/high-school-golf-bears-mead-shatters-course-record/article_313eb6de-3bf7-5c01-bb3d-42093d219c21.html" target="_blank"> article</a></p>
+                </div>
+            </div>
+
+            <div class="news-entry">
+                <h3 class="news-title">First Time Breaking 80 in a College Prep Tourney</h3>
+                <p class="news-date">Posted on April 6, 2014</p>
+                <div class="news-content">
+                    <p>At 1757 Golf Club, I broke 80 for the first time from the championship tees in a tournament. <a href="https://www.shotstat.com/TournamentScoring/ScoreBoard.aspx?tid=1884" target="_blank"> leaderboard</a></p>
+                </div>
+            </div>
+            
+            <div class="news-entry">
+                <h3 class="news-title">First High School Match Shooting Even Par</h3>
+                <p class="news-date">Posted on September 15, 2014</p>
+                <div class="news-content">
+                    <p>One of my most memorable high school golf moments was shooting even par for the first time in a match, where I faced off against Aaron Keeton, a rival from my home course, the Gauntlet. I don't think he beat me after this. <a href="https://fredericksburg.com/sports/high-school/high-school-roundup-keeton-eagles-take-lee-s-hill-tri-match/article_044ce7a5-7612-5444-932c-25ac2061c5a3.html" target="_blank"> article</a></p>
+                </div>
+            </div>
+            
+            <div class="news-entry">
+                <h3 class="news-title">Top 30 Finish at VSGA Junior Championship</h3>
+                <p class="news-date">Posted on August 1, 2015</p>
+                <div class="news-content">
+                    <p>In my first appearance at the Virginia State Golf Association Junior Stroke Championship, I tied for 30th, shooting rounds of 75–77–78 :: 230. Bummed Jake beat me by a stroke!<a href="https://fredericksburg.com/sports/recreation-note-miles-is-23rd-at-vsga-event/article_8ea8d436-e7c8-56b9-8c2c-f2cb922f18aa.html" target="_blank"> article</a></p>
+                </div>
+            </div>
+            
+            
+            <div class="news-entry">
+                <h3 class="news-title">Runner-up in VHSL 5A State Golf Championship</h3>
+                <p class="news-date">Posted on October 14, 2015</p>
+                <div class="news-content">
+                    <p>As a senior in high school, I grinded out second place at the 5A state golf tournament. This article reflects on my top-six finish in the state championships, earning an All-State recognition. <a href="https://fredericksburg.com/sports/high-school/high-school-golf-miles-smith-will-take-finishes-in-state-championships/article_c6d6c2e3-7239-53eb-b4de-5b8cf85d7081.html" target="_blank"> article</a></p>
+                </div>
+            </div>
+            
+            <div class="news-entry">
+                <h3 class="news-title">Community Support Following House Fire</h3>
+                <p class="news-date">Posted on May 9, 2016</p>
+                <div class="news-content">
+                    <p>Before my HS graduation, our family house was destroyed in a fire. The support we received is a testament to the strength and compassion of our local Stafford community. <a href="https://fredericksburg.com/news/local/community-rallies-around-stafford-family-displaced-by-fire/article_3e388c5a-163b-11e6-ac14-ab10fdf1517f.html" target="_blank">article</a>.</p>
+                </div>
+            </div>
+            
+            <div class="news-entry">
+                <h3 class="news-title">Personal Best at Blue Ridge Shadows</h3>
+                <p class="news-date">Posted on July 17, 2016</p>
+                <div class="news-content">
+                    <p>During the summer after my senior year, I turned in a 68 at Blue Ridge Shadows Golf Club (despite major storms!). It was always nice to beat Kyle Cardenas, a Taylormade-sponsored junior golfer.<a href="https://www.ghintpp.com/vsga/TPPOnlineScoring/ResultsStroke.aspx?id=2175" target="_blank"> leaderboard</a></p>
+                </div>
+            </div>
+            
+            <div class="news-entry">
+                <h3 class="news-title">Medalist at VA State Am Qualifying</h3>
+                <p class="news-date">Posted on June 13, 2017</p>
+                <div class="news-content">
+                    <p>During the June 2017 State Amateur Qualifying at Fredericksburg CC, I shot even par, finally beating all my former Riverbend High School rivals. <a href="https://amopenfredericksburg.golfgenius.com/pages/1004399" target="_blank"> leaderboard</a></p>
+                </div>
+            </div>
+            
+            <div class="news-entry">
+                <h3 class="news-title">Community Rallies After Spinal Stroke</h3>
+                <p class="news-date">Posted on July 9, 2019</p>
+                <div class="news-content">
+                    <p>I suffered a rare spinal stroke the summer before my senior year of college. This interview occurred during my first few weeks in in-patient therapy. <a href="https://fredericksburg.com/lifestyles/community-rallies-around-jacoby-smith-after-rare-spinal-stroke/article_5778b7e9-26a2-56d6-a695-95d28b73c80f.html" target="_blank"> article</a></p>
+                </div>
+            </div>
+            
+            <div class="news-entry">
+                <h3 class="news-title">Named to All-Decade Golf Team</h3>
+                <p class="news-date">Posted on December 2, 2019</p>
+                <div class="news-content">
+                    <p>I was honored to be named to the All-Decade Golf Team by Fredericksburg.com for my performance during my senior year at Stafford High School. I placed second at the 5A state tournament and finished third in the region. <a href="https://fredericksburg.com/sports/all-decade-golf-capsules/article_30bdf6f9-3c09-5489-be01-a75b1737dfbd.html" target="_blank"> article</a></p>
+                </div>
+            </div>
+
+            <div class="news-entry">
+                <h3 class="news-title">Recovery and Return to Vanderbilt</h3>
+                <p class="news-date">Posted on January 4, 2020</p>
+                <div class="news-content">
+                    <p>Half a year after my spinal stroke, I had surpassed expectations and was walking again. This update, before returning to Vanderbilt to finish my senior year, highlights my journey of resilience (ft. Green Fitness!). <a href="https://fredericksburg.com/news/local/update-jacoby-smith-on-his-feet-again-thanks-to-grit-and-positive-thinking/article_fd685ca3-bfa2-59ff-8563-ecca6173bc7b.html" target="_blank"> article</a></p>
+                </div>
+            </div>
+            
+            <div class="news-entry">
+                <h3 class="news-title">Distinguished Community Service Award for STEM Advocacy</h3>
+                <p class="news-date">Posted on June 16, 2022</p>
+                <div class="news-content">
+                    <p>I was honored with the Distinguished Community Service Award by the Naval Surface Warfare Center Dahlgren Division (NSWCDD) for my advocacy in STEM. This recognition was for teaching an AP computer science class virtually to upperclassmen at Stafford High School in 2021, sharing my knowledge and passion for technology and education. <a href="https://www.navsea.navy.mil/Media/News/Article/3066262/nswc-dahlgren-division-software-developer-and-scientist-is-recipient-of-the-dis/" target="_blank"> article</a></p>
+                </div>
+            </div>
+            
+            <div class="news-entry">
+                <h3 class="news-title">Runner-up in 2022 US Disabled Open</h3>
+                <p class="news-date">Posted on June 16, 2022</p>
+                <div class="news-content">
+                    <p>I was the runner-up in the <a href="https://www.instagram.com/p/CemmKKYuW3B4RUGcuZ6hEuVha46D8QBibPhN1U0/">2022 US Disabled Open</a>, with my then-girlfriend (now wife) caddying for me.</p>
+                </div>
+            </div>
+            
+            <div class="news-entry">
+                <h3 class="news-title">Return of Phi Psi TN Delta</h3>
+                <p class="news-date">Posted on January 7, 2023</p>
+                <div class="news-content">
+                    <p>The fraternity I acted as president of (briefly) has returned to campus. LEDN <a href="https://vanderbilthustler.com/2023/01/07/phi-kappa-psi-sigma-alpha-epsilon-fraternities-return-to-campus/#:~:text=Vanderbilt%27s%20Tennessee%20Delta%20chapter%20of,risk%20management%20and%20recruitment%20violations" target="_blank">article</a></p>
+                </div>
+            </div>
+            
+            <div class="news-entry">
+                <h3 class="news-title">Debut of Army's Typhon Strike Weapon</h3>
+                <p class="news-date">Posted on November 18, 2023</p>
+                <div class="news-content">
+                    <p>My work at Dahlgren included development of systems to support the Army’s new Typhon strike weapon, a significant project now heading to the Indo-Pacific in 2024. <a href="https://breakingdefense.com/2023/11/armys-new-typhon-strike-weapon-headed-to-indo-pacific-in-2024/" target="_blank"> article</a></p>
+                </div>
+            </div>
+            
+        </section>
+
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <p>Email: <a href="mailto:jacoby@arielleworld.com">jacoby@arielleworld.com</a></p>
+
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/jacoby-smith-3a462a12b" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/jrsmithc6/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com/_jacoby_smith_" target="_blank"><i class="fab fa-twitter"></i></a>
+            </div>
+        </section>
+
+
+        <section id="gallery">            
+            <div class="card-stack">
+                <div class="card" style="background-image: url('http://arielleworld.com/images/engagement.jpeg');"></div>
+                <div class="card" style="background-image: url('http://arielleworld.com/images/wedding_guests.jpeg');"></div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        &copy; 2025 Jacoby Smith
+    </footer>
+
+<script>
+// JavaScript to add interactivity to the cards (if needed)
+document.querySelectorAll('.card').forEach((card, index, cards) => {
+  card.addEventListener('click', () => {
+    const lastCard = cards[cards.length - 1];
+    card.style.zIndex = -1;
+    setTimeout(() => {
+      card.style.zIndex = '';
+      lastCard.parentNode.insertBefore(card, lastCard.nextSibling);
+    }, 500);
+  });
+});
+</script>
+
+</body>
+</html>

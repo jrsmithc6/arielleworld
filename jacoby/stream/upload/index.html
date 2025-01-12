@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Upload file to S3</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <script src="https://unpkg.com/axios@0.2.1/dist/axios.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aws-sdk/2.1132.0/aws-sdk.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/amazon-cognito-identity-js/5.0.3/amazon-cognito-identity.min.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div class="upload-container">
+        <h1 class="upload-title">Very High Tech Video Uploader</h1>
+
+        <div v-if="!uploadURL">
+          <h2>Select a video file</h2>
+          <input ref="fileInput" type="file" @change="onFileChange" accept="video/quicktime,video/mp4" class="file-input">
+          <button @click="selectFile" class="btn">Select Video</button>
+          <video :src="image" controls class="video-preview"></video>
+          <input type="text" v-model="videoTitle" placeholder="Enter a title for the video" class="title-input">
+          <div class="upload-buttons">
+             <button @click="removeImage" class="btn">Remove Video</button>
+             <button @click="uploadImage" class="btn">Upload Video</button>
+          </div>
+        </div>
+        <h2 v-if="uploadURL !== ''" class="success-message">Success! Thanks for sharing.</h2>
+      </div>
+    </div>
+
+    <style type="text/css">
+      body {
+        background: #f0f0f0; /* Light gray background */
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      .upload-container {
+        background: #ffffff; /* White background */
+        border-radius: 8px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+      }
+      .upload-title {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+      .file-input {
+        display: none;
+      }
+      .upload-buttons {
+        margin-top: 20px;
+      }
+      .btn {
+        background: #3498db; /* Pastel blue button background */
+        color: #ffffff; /* White text */
+        border: none;
+        border-radius: 4px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+        margin-right: 10px;
+      }
+      .btn:hover {
+        background: #2980b9; /* Darker blue on hover */
+      }
+      .video-preview {
+        width: 70%;
+        margin: auto;
+        display: block;
+        margin-top: 20px;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+      }
+      .success-message {
+        font-weight: bold;
+        margin-top: 20px;
+        color: #27ae60; /* Green success message */
+      }
+    </style>
+
+    <script>
+      /* ENTER YOUR ENDPOINT HERE */
+      const API_ENDPOINT = 'https://i2490mkv35.execute-api.us-east-1.amazonaws.com/uploads';
+
+      new Vue({
+        el: "#app",
+        data: {
+          image: '',
+          uploadURL: '',
+          videoTitle: '' // Initialize as an empty string
+        },
+        methods: {
+          onFileChange (e) {
+            let files = e.target.files || e.dataTransfer.files
+            if (!files.length) return
+            this.createImage(files[0])
+          },
+          createImage (file) {
+            let reader = new FileReader()
+            reader.onload = (e) => {
+                const supportedFormats = ['data:video/quicktime', 'data:video/mp4'];
+                if (!supportedFormats.some(format => e.target.result.includes(format))) {
+                  return alert('Wrong file type - QuickTime or MP4 only.');
+                }
+                
+                this.image = e.target.result
+            }
+            reader.readAsDataURL(file)
+          },
+          removeImage: function (e) {
+            console.log('Remove clicked')
+            this.image = ''
+          },
+          uploadImage: async function (e) {
+            console.log('Upload clicked')
+            if (!this.videoTitle) {
+                return alert('Please enter a title for the video.');
+            }
+
+            // Get the presigned URL
+            const response = await axios({
+                method: 'GET',
+                url: API_ENDPOINT,
+                params: {
+                  title: this.videoTitle // Pass the title as a query parameter
+                }
+            })
+
+            console.log('Response: ', response)
+            console.log('Uploading: ', this.image)
+            let binary = atob(this.image.split(',')[1])
+            let array = []
+            for (var i = 0; i < binary.length; i++) {
+                array.push(binary.charCodeAt(i))
+            }
+            let blobData = new Blob([new Uint8Array(array)], { type: 'video/quicktime' })
+            console.log('Uploading to: ', response.uploadURL)
+            const result = await fetch(response.uploadURL, {
+                method: 'PUT',
+                body: blobData
+            })
+            console.log('Result: ', result)
+            // Final URL for the user doesn't need the query string params
+            this.uploadURL = response.uploadURL.split('?')[0]
+          },
+          selectFile() {
+            this.$refs.fileInput.click();
+          }
+        }
+      })
+    </script>
+  </body>
+</html>

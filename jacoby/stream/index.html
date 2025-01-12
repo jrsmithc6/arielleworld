@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Streamable Videos</title>
+</head>
+<body>
+    <h1>Streamable Videos</h1>
+    <video controls id="videoPlayer">
+        <!-- Video source will be dynamically set via JavaScript -->
+    </video>
+    <button id="playButton">Play Video</button>
+    <button id="pauseButton">Pause Video</button>
+    
+    <!-- Container for generated video links -->
+    <div id="videoLinks"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aws-sdk/2.1115.0/aws-sdk.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", async function () {
+            const videoPlayer = document.getElementById("videoPlayer");
+            const playButton = document.getElementById("playButton");
+            const pauseButton = document.getElementById("pauseButton");
+            const videoLinksContainer = document.getElementById("videoLinks");
+
+            // Initialize AWS SDK
+            AWS.config.region = 'us-east-1'; // Replace with your AWS region
+            const s3 = new AWS.S3();
+
+            // Function to list objects in the S3 bucket
+            async function listObjectsInBucket() {
+                const params = {
+                    Bucket: 'streamable-content' // Replace with your S3 bucket name
+                };
+
+                try {
+                    const data = await s3.listObjects(params).promise();
+                    const objects = data.Contents;
+
+                    // Generate links for each video object
+                    objects.forEach((object) => {
+                        const videoUrl = `https://streamable-content.s3.amazonaws.com/${object.Key}`;
+                        const videoLink = document.createElement("a");
+                        videoLink.href = videoUrl;
+                        videoLink.textContent = object.Key; // Display the object key as the link text
+                        videoLink.target = "_blank"; // Open links in a new tab
+                        videoLinksContainer.appendChild(videoLink);
+                    });
+                } catch (error) {
+                    console.error("Error listing objects:", error);
+                }
+            }
+
+            // Event listeners for Play and Pause buttons
+            playButton.addEventListener("click", function () {
+                videoPlayer.play();
+            });
+
+            pauseButton.addEventListener("click", function () {
+                videoPlayer.pause();
+            });
+
+            // List objects and generate links when the page loads
+            await listObjectsInBucket();
+        });
+    </script>
+</body>
+</html>
